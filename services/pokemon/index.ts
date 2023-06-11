@@ -2,7 +2,12 @@ import { CoreAPI } from "../core";
 
 class PokemonService extends CoreAPI {
   async getListPokemon() {
-    return await this.fetch<TPokemon>("/pokemon?offset=20&limit=20");
+    return await this.fetch<TPokemon>("/pokemon", "GET", {
+      params: {
+        offset: 0,
+        limit: 20,
+      },
+    });
   }
 }
 
