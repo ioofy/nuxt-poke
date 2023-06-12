@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { data } = useFetch<TPokemon>(
-  "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
-);
+import { useGetAllPokemon } from "~/hooks/query";
+
+const { data } = useGetAllPokemon();
 </script>
 
 <template>

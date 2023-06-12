@@ -1,9 +1,7 @@
-<script setup>
-import { Navbar, Footer } from "~/layouts";
-</script>
+<script setup></script>
 
 <template>
-  <Navbar />
-  <NuxtPage />
-  <Footer />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

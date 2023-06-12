@@ -1,10 +1,8 @@
-import { useQuery } from "@tanstack/vue-query";
-import { pokemonAPI } from "~/services";
-
 export const useGetAllPokemon = () => {
-  return useQuery(
-    ["list-pokemon"],
-    async () => await pokemonAPI.getListPokemon(),
-    { keepPreviousData: true }
-  );
+  return useFetch<TPokemon>("https://pokeapi.co/api/v2/pokemon", {
+    params: {
+      ofsset: 0,
+      limit: 10,
+    },
+  });
 };
