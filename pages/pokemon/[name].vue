@@ -3,19 +3,21 @@
 
   <button @click="modalStore.openModal">Open</button>
 
-  <Modal :isOpen="isOpen" :handleClose="modalStore.closeModal" />
+  <Modal :isOpen="isModalOpen" :handleClose="modalStore.closeModal" />
 </template>
 
 <script lang="ts" setup>
-import { useModalStore } from "~/store/modalStore";
-import { storeToRefs } from "pinia";
+import {useActivity} from "~/store";
+import {storeToRefs} from "pinia";
 
-const { name } = useRoute().params;
-const modalStore = useModalStore();
-const { isOpen } = storeToRefs(modalStore);
+const {name} = useRoute().params;
+const modalStore = useActivity();
+
+const {isModalOpen} = storeToRefs(modalStore);
 
 useSeoMeta({
   title: `Pokemon - ${name}`,
+  description: `Pokemon ${name}`,
 });
 
 definePageMeta({
